@@ -6,7 +6,7 @@
 /*   By: iboukhss <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 15:46:09 by iboukhss          #+#    #+#             */
-/*   Updated: 2024/10/13 01:58:32 by marvin           ###   ########.fr       */
+/*   Updated: 2024/10/13 17:47:39 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 // For ease of use in functions
 typedef struct s_stacks
 {
+	t_node	*pool;
 	t_stack	*a;
 	t_stack	*b;
 }	t_stacks;

@@ -6,11 +6,12 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 01:46:37 by marvin            #+#    #+#             */
-/*   Updated: 2024/10/13 15:41:13 by marvin           ###   ########.fr       */
+/*   Updated: 2024/10/13 17:36:04 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps_internal.h"
+#include "s_stack.h"
 
 #include <stdio.h>
 
@@ -38,26 +39,18 @@ void	swap_both(t_stacks stacks)
 
 void	push_a(t_stacks stacks)
 {
-	int	val;
+	t_node	*node;
 
-	if (!stack_is_empty(stacks.b) && !stack_is_full(stacks.a))
-	{
-		stack_front(&val, stacks.b);
-		stack_pop_front(stacks.b);
-		stack_push_front(stacks.a, val);
-	}
+	node = stack_pop_front(stacks.b);
+	stack_push_front(stacks.a, node);
 	puts("pa");
 }
 
 void	push_b(t_stacks stacks)
 {
-	int	val;
+	t_node	*node;
 
-	if (!stack_is_empty(stacks.a) && !stack_is_full(stacks.b))
-	{
-		stack_front(&val, stacks.a);
-		stack_pop_front(stacks.a);
-		stack_push_front(stacks.b, val);
-	}
+	node = stack_pop_front(stacks.a);
+	stack_push_front(stacks.b, node);
 	puts("pb");
 }

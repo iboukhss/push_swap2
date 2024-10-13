@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 02:03:17 by marvin            #+#    #+#             */
-/*   Updated: 2024/10/13 02:03:32 by marvin           ###   ########.fr       */
+/*   Updated: 2024/10/13 17:30:52 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,27 @@
 
 void	stack_rotate(t_stack *stack)
 {
-	if (stack->len < 2)
-		return ;
-	stack->head = stack->head->next;
-	stack->tail = stack->tail->next;
+	t_node	*node;
+
+	node = stack_pop_front(stack);
+	stack_push_back(stack, node);
 }
 
 void	stack_reverse_rotate(t_stack *stack)
 {
-	if (stack->len < 2)
-		return ;
-	stack->head = stack->head->prev;
-	stack->tail = stack->tail->prev;
+	t_node	*node;
+
+	node = stack_pop_back(stack);
+	stack_push_front(stack, node);
 }
 
 void	stack_swap(t_stack *stack)
 {
-	int	tmp;
+	t_node	*node_a;
+	t_node	*node_b;
 
-	if (stack->len < 2)
-		return ;
-	tmp = stack->head->data;
-	stack->head->data = stack->head->next->data;
-	stack->head->next->data = tmp;
+	node_a = stack_pop_front(stack);
+	node_b = stack_pop_front(stack);
+	stack_push_front(stack, node_a);
+	stack_push_front(stack, node_b);
 }
